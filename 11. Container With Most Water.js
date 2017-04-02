@@ -1,5 +1,5 @@
 var maxArea = function(height) {
-	//这个方法性能有问题
+	 //这个方法性能有问题
     /*var water = 0;
     var s;
     var h;
@@ -13,6 +13,7 @@ var maxArea = function(height) {
     console.log(water)
     return water*/
 
+    //这个方法参考了别人的代码
     var water = 0;
     var i = 0;
     var j = height.length-1;
