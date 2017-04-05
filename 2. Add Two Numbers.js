@@ -11,3 +11,4 @@ var addTwoNumbers = function(arr1, arr2) {
 var arr1 = [2,4,3];
 var arr2 = [5,6,4];
 addTwoNumbers(arr1,arr2)//[7,0,8]
+//把对链表的操作换成了对数组的操作
