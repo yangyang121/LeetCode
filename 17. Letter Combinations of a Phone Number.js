@@ -32,4 +32,4 @@ var letterCombinations = function(digits) {
     }
     
 };
-console.log(letterCombinations('23'))
+letterCombinations('234')
