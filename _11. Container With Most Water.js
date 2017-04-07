@@ -19,7 +19,7 @@ var maxArea = function(height) {
     var j = height.length-1;
     var h;
 
-   	while(i<j){
+   	while(i < j){
    		h = Math.min(height[i],height[j]);
    		water = Math.max(water,h*(j-i));
 
