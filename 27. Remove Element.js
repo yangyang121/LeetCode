@@ -14,7 +14,7 @@ var removeElement = function(nums, val) {
 
    	while(j < nums.length){
    		if(nums[j] !== val){
-   			nums[i] = nums[j];
+   			nums[i] = nums[j];//为了输出正确的数组
    			i++;
    		};
    		j++;
