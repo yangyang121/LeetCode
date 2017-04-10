@@ -5,4 +5,4 @@ var strStr = function(haystack, needle) {
     	console.log(haystack.indexOf(needle))
     }
 };
-strStr('','a');
+strStr()
