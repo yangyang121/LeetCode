@@ -17,5 +17,6 @@ var countAndSay = function(n) {
    		res = cur;
    	}
    	console.log(res)
+   	console.log(123456789*987654321)
 };
-countAndSay(5)
+countAndSay(1)
