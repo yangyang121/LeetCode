@@ -12,7 +12,7 @@ var groupAnagrams = function(strs) {
     		map[sorted].push(str)
     	}
     }
-    
+    console.log(map)
     for(var arr in map){
     	result.push(map[arr])
     }	
