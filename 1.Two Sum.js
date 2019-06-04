@@ -1,12 +1,12 @@
 var twoSum = function(nums, target) {
-    for(var i =0;i<nums.length;i++){
-    	for(var j =i+1;j<nums.length;j++){
-    		if(nums[i]+nums[j]===target){
-    			return [nums[i],nums[j]]
-    		}	
-    	}
+  let index = 0
+  for (var i = 0; i < nums.length; i++) {
+    index = nums.indexOf(target - nums[i], i + 1)
+    if (index !== -1) {
+      return [i, index]
     }
-};
-var nums = [2,5,7,9];
-var target = 9;
-twoSum(nums,target)//[2,7]
+  }
+}
+var nums = [3, 2, 4]
+var target = 6
+console.log(twoSum(nums, target)) //[2,7]
