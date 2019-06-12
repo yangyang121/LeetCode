@@ -1,25 +1,15 @@
+// 更好的思路：记录不等于 val 的值
 var removeElement = function(nums, val) {
-    /*nums = nums.filter(function(item){
-    	if(item === val){
-    		return false
-    	}else{
-    		return true
-    	}
-    });
-    console.log(nums)
-    return nums.length*/
-
-    var i = 0;
-    var j = 0;
-
-   	while(j < nums.length){
-   		if(nums[j] !== val){
-   			nums[i] = nums[j];//为了输出正确的数组
-   			i++;
-   		};
-   		j++;
-   	}
-   	console.log(i)
-
-};
-removeElement([3,2,2,3],3);
+  let j = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[j] = nums[i]
+      j++
+    }
+  }
+  console.log(nums, j)
+  return j
+}
+removeElement([1], 1)
+removeElement([3, 2, 2, 3], 3)
+removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)
