@@ -1,3 +1,4 @@
+// 如果 len1 剩下不需要处理，如果 len2 剩下则需要把剩下的加到 nums1 的最前面
 /**
  * @param {number[]} nums1
  * @param {number} m

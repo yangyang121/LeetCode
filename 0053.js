@@ -1,3 +1,4 @@
+// 前面的和大于0继续加，否则弃用
 /**
  * @param {number[]} nums
  * @return {number}
