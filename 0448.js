@@ -7,9 +7,7 @@ var findDisappearedNumbers = function (nums) {
   const result = [];
   for (let i = 0; i < nums.length; i++) {
     const element = Math.abs(nums[i]);
-    if (element <= nums.length && nums[element - 1] > 0) {
-      nums[element - 1] *= -1;
-    }
+    if (nums[element - 1] > 0) nums[element - 1] *= -1;
   }
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] > 0) result.push(i + 1);
@@ -17,4 +15,4 @@ var findDisappearedNumbers = function (nums) {
   return result;
 };
 
-findDisappearedNumbers([4,3,2,7,8,2,3,1]);
+findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]);
