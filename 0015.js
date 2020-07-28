@@ -5,10 +5,10 @@
 var threeSum = function (nums) {
   const result = [];
   const len = nums.length;
-  if (!nums || len < 3) return result;
+  if (!Array.isArray(nums) || len < 3) return result;
   // 先排序
   nums.sort((a, b) => a - b);
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < len - 2; i++) {
     // 第一个数大于0一定没有符合条件的，退出
     if (nums[i] > 0) break;
     // 去重

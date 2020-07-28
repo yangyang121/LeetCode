@@ -7,7 +7,7 @@ var threeSumClosest = function (nums, target) {
   const len = nums.length;
   nums.sort((a, b) => a - b);
   let result = nums[0] + nums[1] + nums[2];
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len - 2; i++) {
     let left = i + 1;
     let right = len - 1;
     while (left < right) {
