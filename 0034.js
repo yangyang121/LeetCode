@@ -15,7 +15,7 @@ var searchRange = function (nums, target) {
         right = mid - 1;
       }
     }
-    if (left >= nums.length || nums[left] != target) return -1;
+    if (left >= nums.length || nums[left] !== target) return -1;
     return left;
   }
   function rightBound() {
@@ -29,7 +29,7 @@ var searchRange = function (nums, target) {
         left = mid + 1;
       }
     }
-    if (right < 0 || nums[right] != target) return -1;
+    if (right < 0 || nums[right] !== target) return -1;
     return right;
   }
   const leftPosition = leftBound();
