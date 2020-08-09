@@ -4,16 +4,17 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
-  let count = 1;
+  let count = 0;
   let cand_num = nums[0];
-  for (let i = 1; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] === cand_num) {
       count++;
     } else {
-      count--;
-      if (count < 0) {
+      if (count === 0) {
         cand_num = nums[i];
-        count = 1;
+        count++;
+      } else {
+        count--;
       }
     }
   }
