@@ -1,31 +1,24 @@
-/*Given "abcabcbb", the answer is "abc", which the length is 3.
-
-Given "bbbbb", the answer is "b", with the length of 1.
-
-Given "pwwkew", the answer is "wke", with the length of 3.*/
-var lengthOfLongestSubstring = function(s) {
-  let result = []
-  let max = 0
-  let index = 0
-  if (!s) return 0
-  for (let i = 0; i < s.length; i++) {
-    index = result.indexOf(s[i])
-    if (index !== -1) {
-      if (index === result.length - 1) {
-        result = [s[i]]
-      } else {
-        result.splice(0, index + 1)
-        result.push(s[i])
-      }
-    } else {
-      result.push(s[i])
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function (s) {
+  if (s.length === 0 || s.length === 1) return s.length;
+  let ans = 0;
+  const map = {};
+  let left = 0;
+  let i = 0;
+  while (i < s.length) {
+    if (map[s[i]] !== undefined) {
+      left = Math.max(left, map[s[i]] + 1);
     }
-    max = result.length > max ? result.length : max
+    map[s[i]] = i;
+    i++;
+    ans = Math.max(ans, i - left);
   }
-  console.log(max)
-  return max
-}
-lengthOfLongestSubstring("abcabcbb") //3
-lengthOfLongestSubstring("bbbbb") //1
-lengthOfLongestSubstring("pwwkew") //3
-lengthOfLongestSubstring("dedf") //3
+  console.log(ans);
+};
+lengthOfLongestSubstring("abcabcbb");
+lengthOfLongestSubstring("bbbbb");
+lengthOfLongestSubstring("pwwkew");
+lengthOfLongestSubstring("dedf");
