@@ -1,11 +1,13 @@
-var isPalindrome = function(x) {
-  if (x < 0) {
-    return false
-  } else if (x < 10) {
-    return true
-  } else if (x === Number(x.toString().split('').reverse().join(''))) {
-      return true
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function (x) {
+  if (x < 0 || x % 10 === 0) return x === 0;
+  let revertedNumber = 0;
+  while (x > revertedNumber) {
+    revertedNumber = revertedNumber * 10 + (x % 10);
+    x = Math.floor(x / 10);
   }
-  return false
-}
-isPalindrome(232)
+  return x === revertedNumber || x === Math.floor(revertedNumber / 10);
+};
