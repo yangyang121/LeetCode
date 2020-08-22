@@ -7,12 +7,12 @@ var searchRange = function (nums, target) {
   function leftBound() {
     let left = 0;
     let right = nums.length - 1;
-    while (left <= right) {
-      let mid = Math.floor((left + right) / 2);
+    while (left < right) {
+      let mid = ((left + right) / 2) | 0;
       if (nums[mid] < target) {
         left = mid + 1;
       } else {
-        right = mid - 1;
+        right = mid;
       }
     }
     if (left >= nums.length || nums[left] !== target) return -1;
@@ -21,12 +21,12 @@ var searchRange = function (nums, target) {
   function rightBound() {
     let left = 0;
     let right = nums.length - 1;
-    while (left <= right) {
-      let mid = Math.floor((left + right) / 2);
+    while (left < right) {
+      let mid = (((left + right) / 2) | 0) + 1;
       if (nums[mid] > target) {
         right = mid - 1;
       } else {
-        left = mid + 1;
+        left = mid;
       }
     }
     if (right < 0 || nums[right] !== target) return -1;

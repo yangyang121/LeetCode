@@ -29,3 +29,5 @@ var search = function (nums, target) {
 
 search([4, 5, 6, 7, 0, 1, 2], 0);
 search([4, 5, 6, 7, 0, 1, 2], 3);
+search([6, 7, 0, 1, 2, 3, 4], 0);
+search([6, 7, 0, 1, 2, 3, 4], 3);
