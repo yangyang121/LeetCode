@@ -9,7 +9,6 @@ var search = function (nums, target) {
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
     if (nums[mid] === target) return mid;
-    // 判断 nums[mid] 是属于前一个有序数组还是后一个有序数组
     if (nums[left] <= nums[mid]) {
       if (nums[left] <= target && nums[mid] > target) {
         right = mid - 1;
