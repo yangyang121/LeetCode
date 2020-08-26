@@ -6,24 +6,25 @@
  * }
  */
 /**
- * @param {number[]} preorder
  * @param {number[]} inorder
+ * @param {number[]} postorder
  * @return {TreeNode}
  */
-var buildTree = function (preorder, inorder) {
+var buildTree = function (inorder, postorder) {
   const indexMap = {};
-  let pre_idx = 0;
+  let post_idx = postorder.length - 1;
   const myBuildTree = (inorder_left, inorder_right) => {
     if (inorder_left > inorder_right) return null;
-    const inorder_root = indexMap[preorder[pre_idx]];
-    const root = new TreeNode(preorder[pre_idx]);
-    pre_idx++;
+    const inorder_root = indexMap[postorder[post_idx]];
+    const root = new TreeNode(postorder[post_idx]);
+    post_idx--;
 
-    root.left = myBuildTree(inorder_left, inorder_root - 1);
     root.right = myBuildTree(inorder_root + 1, inorder_right);
+    root.left = myBuildTree(inorder_left, inorder_root - 1);
 
     return root;
   };
+
   const n = inorder.length;
   for (let i = 0; i < n; i++) indexMap[inorder[i]] = i;
   return myBuildTree(0, n - 1);
