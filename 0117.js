@@ -11,26 +11,27 @@
 /**
  * @param {Node} root
  * @return {Node}
+ * 此题BFS更好理解
  */
 var connect = function (root) {
-  let cur = root;
-  while (cur !== null) {
-    let dummy = new Node();
-    let tail = dummy;
-
-    while (cur !== null) {
+  if (root === null) return null;
+  const queue = [root];
+  while (queue.length) {
+    const len = queue.length;
+    let pre = new Node();
+    for (let i = 0; i < len; i++) {
+      let cur = queue.shift();
+      if (i > 0) {
+        pre.next = cur;
+      }
+      pre = cur;
       if (cur.left !== null) {
-        tail.next = cur.left;
-        tail = tail.next;
+        queue.push(cur.left);
       }
       if (cur.right !== null) {
-        tail.next = cur.right;
-        tail = tail.next;
+        queue.push(cur.right);
       }
-      cur = cur.next;
     }
-
-    cur = dummy.next;
   }
   return root;
 };
