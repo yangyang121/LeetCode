@@ -14,14 +14,23 @@
  */
 var connect = function (root) {
   if (root === null) return null;
-  let left = root.left;
-  let right = root.right;
-  while (left !== null) {
-    left.next = right;
-    right = right.left;
-    left = left.right;
+  const queue = [root];
+  let pre = new Node();
+  while (queue.length) {
+    const levelNum = queue.length;
+    for (let i = 0; i < levelNum; i++) {
+      let cur = queue.shift();
+      if (i > 0) {
+        pre.next = cur;
+      }
+      pre = cur;
+      if (cur.left !== null) {
+        queue.push(cur.left);
+      }
+      if (cur.right !== null) {
+        queue.push(cur.right);
+      }
+    }
   }
-  connect(root.left);
-  connect(root.right);
   return root;
 };
