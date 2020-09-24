@@ -7,7 +7,7 @@ var maxSubArray = function (nums) {
   let pre = 0;
   nums.forEach((x) => {
     pre = Math.max(pre + x, x);
-    ans = Math.max(ans, ans + pre);
+    ans = Math.max(ans, pre);
   });
   return ans;
 };
