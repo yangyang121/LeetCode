@@ -1,6 +1,11 @@
 /**
  * @param {number[]} prices
  * @return {number}
+ * 只有三种情况：
+ * 1、第i天还持有股票，有两种可能：第i-1天就已经持有；第i天刚购入，此时第i-1天必不处于冷冻期；
+ * 2、第i天不持有股票且处于冷冻期；
+ * 3、第i天不持有股票且不处于冷冻期
+ * 最后比较三个数值，但最后不可能还持有股票所以只需要比较后两个
  */
 var maxProfit = function (prices) {
   if (prices.length === 0) return 0;
