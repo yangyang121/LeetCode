@@ -3,22 +3,21 @@
  * @return {number[][]}
  */
 var subsets = function (nums) {
-  const res = [];
+  const ans = [];
 
-  const dfs = (index, list) => {
-    if (index === nums.length) {
-      res.push(list.slice());
-      return;
+  const dfs = (index, path) => {
+    ans.push(path.slice());
+
+    for (let i = index; i < nums.length; i++) {
+      path.push(nums[i]);
+      dfs(i + 1, path);
+      path.pop();
     }
-    list.push(nums[index]);
-    dfs(index + 1, list);
-    list.pop();
-    dfs(index + 1, list);
   };
 
   dfs(0, []);
-  console.log(res);
-  return res;
+  console.log(ans);
+  return ans;
 };
 
 subsets([1, 2, 3]);
