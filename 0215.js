@@ -4,22 +4,28 @@
  * @return {number}
  */
 var findKthLargest = function (nums, k) {
-  function partition(left, right) {
-    const x = nums[left]
-    let i = left
-    let j = right
-    while (i < j) {
-      while (i < j && nums[j] > x) j--
-      if (i < j) nums[i] = nums[j]
-      while (i < j && nums[i] <= x) i++
-      if (i < j) nums[j] = nums[i]
+  function randomPartition(l, r) {
+    const p = Math.floor(Math.random() * (r - l)) + l
+    ;[nums[p], nums[r]] = [nums[r], nums[p]]
+    return partition(l, r)
+  }
+  function partition(l, r) {
+    const x = nums[r]
+    let i = l - 1
+    for (let j = l; j < r; j++) {
+      if (nums[j] <= x) {
+        i++
+        ;[nums[i], nums[j]] = [nums[j], nums[i]]
+      }
     }
-    nums[i] = x
+    console.log(i, r)
+    i++
+    ;[nums[i], nums[r]] = [nums[r], nums[i]]
     return i
   }
   let left = 0
   let right = nums.length - 1
-  let index = partition(left, right)
+  let index = randomPartition(left, right)
   k = nums.length - k
   while (index !== k) {
     if (index < k) {
@@ -27,10 +33,10 @@ var findKthLargest = function (nums, k) {
     } else {
       right = index - 1
     }
-    index = partition(left, right)
+    index = randomPartition(left, right)
   }
-  console.log(nums, k)
+  console.log(nums)
   return nums[k]
 }
 
-findKthLargest([3, 2, 1, 5, 6, 4], 4)
+findKthLargest([3, 2, 1, 5, 6, 4], 2)
