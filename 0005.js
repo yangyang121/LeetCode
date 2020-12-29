@@ -3,26 +3,31 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-  if (!s || !s.length) return "";
-  if (s.length === 1) return s;
-  const dp = [];
-  const len = s.length;
-  let ans = "";
-  for (let i = 0; i < len; i++) {
-    dp.push(Array.from({ length: len }).fill(false));
-  }
-  for (let i = 0; i < len; i++) {
-    for (let j = 0; j + i < len; j++) {
-      const k = i + j;
-      if (i === 0) {
-        dp[j][k] = true;
-      } else if (i === 1) {
-        dp[j][k] = s[k] === s[j];
+  if (s.length < 2) return s
+  const len = s.length
+  let ans = ""
+  function spread(left, right) {
+    let i = left
+    let j = right
+    while (i >= 0 && j < len) {
+      if (s[i] === s[j]) {
+        i--
+        j++
       } else {
-        dp[j][k] = dp[j + 1][k - 1] && s[k] === s[j];
+        break
       }
-      if (dp[j][k] && k + 1 > ans.length) ans = s.substring(j, k + 1);
     }
+    return s.substring(i + 1, j)
   }
-  return ans;
-};
+  for (let i = 0; i < len; i++) {
+    const oddStr = spread(i, i)
+    const evenStr = spread(i, i + 1)
+    const str = oddStr.length > evenStr.length ? oddStr : evenStr
+    if (str.length > ans.length) ans = str
+  }
+  console.log(ans)
+  return ans
+}
+
+longestPalindrome("babad")
+longestPalindrome("cbbd")
