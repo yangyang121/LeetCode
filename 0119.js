@@ -5,7 +5,7 @@
 var generate = function (numRows) {
   let pre = []
   let ans = []
-  for (let i = 0; i <= rowIndex; i++) {
+  for (let i = 0; i <= numRows; i++) {
     ans = []
     for (let j = 0; j <= i; j++) {
       if (j === 0 || j === i) {
