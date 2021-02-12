@@ -52,7 +52,7 @@ var sortList = function (head) {
     p = p.next
   }
 
-  for (let size = 1; size < len; size <<= 1) {
+  for (let size = 1; size < len; size *= 2) {
     let curr = dummyHead.next
     let tail = dummyHead
     while (curr !== null) {

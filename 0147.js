@@ -15,8 +15,8 @@ var insertionSortList = function (head) {
   }
   const dummyHead = new ListNode(0)
   dummyHead.next = head
-  let lastSorted = head,
-    curr = head.next
+  let lastSorted = head
+  let curr = head.next
   while (curr !== null) {
     if (lastSorted.val <= curr.val) {
       lastSorted = lastSorted.next
