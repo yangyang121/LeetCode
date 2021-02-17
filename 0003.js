@@ -4,20 +4,19 @@
  */
 var lengthOfLongestSubstring = function (s) {
   if (s.length === 0 || s.length === 1) return s.length
-  let ans = 0
-  const map = {}
+  const map = new Map()
   let left = 0
   let i = 0
+  let ans = 0
   while (i < s.length) {
-    if (map[s[i]] !== undefined) {
+    if (map.has(s[i])) {
       // "abba"
-      left = Math.max(left, map[s[i]] + 1)
+      left = Math.max(left, map.get(s[i]) + 1)
     }
-    map[s[i]] = i
+    map.set(s[i], i)
     i++
     ans = Math.max(ans, i - left)
   }
-  console.log(ans)
   return ans
 }
 lengthOfLongestSubstring("abcabcbb")
