@@ -10,16 +10,16 @@ var longestOnes = function (A, K) {
   let cnt = 0
   let ans = 0
   while (j < A.length) {
-      if (A[j] === 0) {
-          cnt++
+    if (A[j] === 0) {
+      cnt++
+    }
+    while (cnt > K) {
+      if (A[i++] === 0) {
+        cnt--
       }
-      while (cnt > K) {
-          if (A[i++] === 0) {
-              cnt--
-          }
-      }
-      ans = Math.max(j - i + 1, ans)
-      j++
+    }
+    ans = Math.max(j - i + 1, ans)
+    j++
   }
   return ans
-};
+}
